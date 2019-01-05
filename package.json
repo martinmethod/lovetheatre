@@ -1,7 +1,7 @@
 {
   "name": "lovetheatre",
   "title": "Love Theatre",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A bachelor degree project.",
   "main": "index.js",
   "scripts": {
