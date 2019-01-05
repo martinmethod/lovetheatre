@@ -1,0 +1,56 @@
+//====================================================|
+// STAGE
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  height: 5.8888888889rem;
+  background-color: map-get($roles-col-backgrounds, 'header');
+  background-image: map-get($roles-gradients, 'stage');
+  background-position: center bottom;
+  border-bottom: map-get($roles-borders-separators, 'white');
+}
+
+
+//--------------------------| Curtains
+
+.curtains {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+
+  > svg {
+    position: absolute;
+    height: 100%;
+  }
+
+  > :first-child {
+    left: -1px;
+  }
+
+  > :last-child {
+    right: -1px;
+    filter: FlipH;
+    transform: scaleX(-1);
+  }
+}
+
+
+//--------------------------| Logo
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: get-rem-unit($roles-size-header-logo);
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.active-logo {
+  pointer-events: none;
+}

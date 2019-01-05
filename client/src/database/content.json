@@ -1,0 +1,23 @@
+{
+  "playTime": "19:00 ч.",
+  "season": "2019/2020",
+  "name": {
+    "prefix": "Театър",
+    "title": "Любов",
+    "suffix": "ООД"
+  },
+  "address": {
+    "street":  "ул. „Георги С. Раковски“ 99",
+    "zipcode": "1000",
+    "district": "Център",
+    "city": "София"
+  },
+  "tel": "+359 88 7741192",
+  "email": "office@theaterlove.bg",
+  "website": "theaterlove.bg",
+  "startingYear": "2018",
+  "maps": {
+    "bgMaps": "https://www.bgmaps.com/link/map/8E76A2F8A067870F8DBAA531EBF86490",
+    "gMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2932.2049318930963!2d23.327695116169142!3d42.699381321596306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa857aac203a59%3A0x8d1277ee86870d60!2z0YPQuy4g4oCe0JPQtdC-0YDQs9C4INChLiDQoNCw0LrQvtCy0YHQutC44oCcIDk5LCAxMDAwINCm0LXQvdGC0YrRgCwg0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1546414431204"
+  }
+}

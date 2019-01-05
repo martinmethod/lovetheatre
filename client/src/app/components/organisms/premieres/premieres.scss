@@ -1,0 +1,36 @@
+//====================================================|
+// PREMIERES
+
+
+//--------------------------| Root
+
+.root {
+  background-color: map-get($roles-col-backgrounds, 'premieres');
+}
+
+
+//--------------------------| List
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+//--------------------------| Bar
+
+.bar {
+  $space: map-get($roles-spaces-min, 'page');
+
+  width: 100%;
+  margin-top: 1rem;
+
+  @include mq-xs() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - $space ) / 2);
+  }
+
+  @include mq-m() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - ($space * 2)) / 3);
+  }
+}

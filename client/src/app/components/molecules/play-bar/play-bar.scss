@@ -1,0 +1,21 @@
+//====================================================|
+// PLAY BAR
+
+
+//--------------------------| Root
+
+.root {
+  display: block;
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+//--------------------------| Date
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}

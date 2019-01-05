@@ -1,0 +1,73 @@
+//====================================================|
+// ROLES: TYPOGRAPHY
+
+
+//--------------------------| Font families
+
+$roles-typo-font-families: (
+  'title':    unquote(map-get($swatch-font-families, 'lt–serif')),
+  'text':     unquote(map-get($swatch-font-families, 'lt–serif')),
+  'nav':      unquote(map-get($swatch-font-families, 'lt–serif')),
+  'sys':      unquote(map-get($swatch-font-families, 'lt–sans')),
+  'season':   unquote(map-get($swatch-font-families, 'lt–script')),
+  'error':    unquote(map-get($swatch-font-families, 'lt–script'))
+);
+
+
+//--------------------------| Font sizes range
+
+$roles-typo-font-sizes-base: (
+  'min':      $base-html-font-size,
+  'max':      $base-html-font-size * map-get($roles-ratios, 'font')
+);
+
+
+//--------------------------| Font sizes hierarchy
+
+$roles-typo-font-sizes: (
+  'title':    map-get($swatch-typo-font-sizes, '32'),
+  'subtitle': map-get($swatch-typo-font-sizes, '24'),
+  'accent':   map-get($swatch-typo-font-sizes, '24'),
+  'text':     map-get($swatch-typo-font-sizes, '18'),
+  'sys':      map-get($swatch-typo-font-sizes, '12'),
+  'season':   map-get($swatch-typo-font-sizes, '14'),
+  'thumb':    map-get($swatch-typo-font-sizes, '15'),
+  'footer':   map-get($swatch-typo-font-sizes, '14'),
+  'error':    map-get($swatch-typo-font-sizes, '42')
+);
+
+
+//--------------------------| Line-heights
+
+$roles-typo-line-heights: (
+  'title':    map-get($swatch-line-heights, '100%'),
+  'text':     map-get($swatch-line-heights, 'normal'),
+  'meta':     map-get($swatch-line-heights, '130%'),
+);
+
+
+//--------------------------| Font weights
+
+$roles-typo-font-weights: (
+  'title':    map-get($swatch-font-weights, 'regular'),
+  'subtitle': map-get($swatch-font-weights, 'regular'),
+  'accent':   map-get($swatch-font-weights, 'bold'),
+  'text':     map-get($swatch-font-weights, 'regular'),
+  'sys':      map-get($swatch-font-weights, 'regular'),
+  'season':   map-get($swatch-font-weights, 'regular'),
+  'error':    map-get($swatch-font-weights, 'regular'),
+  'def':      map-get($swatch-font-weights, 'semibold'),
+);
+
+
+//--------------------------| Shorthands
+
+$roles-typo-font-shorthands: (
+  'title':    italic map-get($roles-typo-font-weights, 'title') map-get($roles-typo-font-sizes, 'title') map-get($roles-typo-font-families, 'title'),
+  'subtitle': italic map-get($roles-typo-font-weights, 'subtitle') map-get($roles-typo-font-sizes, 'subtitle') map-get($roles-typo-font-families, 'title'),
+  'accent':   map-get($roles-typo-font-weights, 'accent') map-get($roles-typo-font-sizes, 'accent') map-get($roles-typo-font-families, 'title'),
+  'text':     map-get($roles-typo-font-weights, 'text') map-get($roles-typo-font-sizes, 'text') map-get($roles-typo-font-families, 'text'),
+  'season':   map-get($roles-typo-font-weights, 'season') map-get($roles-typo-font-sizes, 'season') map-get($roles-typo-font-families, 'season'),
+  'sys':      map-get($roles-typo-font-weights, 'sys') map-get($roles-typo-font-sizes, 'sys') map-get($roles-typo-font-families, 'sys'),
+  'error':    map-get($roles-typo-font-weights, 'error') map-get($roles-typo-font-sizes, 'error') map-get($roles-typo-font-families, 'error')
+);

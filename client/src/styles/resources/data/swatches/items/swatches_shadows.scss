@@ -1,0 +1,8 @@
+//====================================================|
+// SWATCHES: SHADOWS
+
+
+$swatch-shadows: (
+  'medium': 0 0 1rem map-get($swatch-colors, 'dusty-gray'),
+  'dark-sharp':  3px 3px 0 rgba(map-get($swatch-colors, 'mine-shaft'), .3)
+);

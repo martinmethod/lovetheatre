@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- node
+script:
+- npm install
+- npm run build
+- printf '.gitignore\ndeployed*' > client/dist/.gitignore
+- printf 'lovetheatre.martinmetodiev.com' > client/dist/CNAME
+- cp 'README.md' client/dist
+branches:
+  only:
+  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+deploy:
+- provider: releases
+  api_key:
+    secure: gPa+9XhXWNzc/B+9RMJuvk/60VedNMx5gmNFhZDbSxL8EpdM5d/eI3tQHobRCJmKmBEKL8S1VVi0HAECOG3E80ZiZNgHzyJlVVpRwNgh8D+SRoGY9DF5klYtFZaBu/ICSYxlZwwRoBs/E/LqwQofhQ3sJnkPzQmwjrADQmCnlRNl5s/ofmR5H0QXhOz+qjCua7lAqrnD83IWipEu6Dxh9dJhRLmp9Y33TWPjQwFocNZPYKZv7BV1XpLZ6Gaylso2y0YGc16fmFcUJdEMMd8h6hdyH1AijOc7pJg8G6z3PEwKb9FRcboMbRZ4omIXJOQRZsYD0l7xvtuFdLmwR5a5+A23P0HRSuzcC1KNSFzEFY9zH+lbTCTShrX5XMQSnMdBlY66xoNgnsGS/l1U34JOb930WYel2plEgAXQHfngDczt+bvLQZaOEUJeuCKh9fCyVMxOtZExp0lTshYJdzncEX/rBqiaI8GTqxW2arUD/Jp5Fst9hzztXH+YTL2rq0QjP0//W0zX3bYFaYFTQ4t4Oaaq4Nx1EHzHESaja2B6sysbmNoTn0OHGE/HKNJPXJedRjuHOfsSEiiqZgYUIKg7qeSknvkKObbkwuDNVOBW19kMFSMiUpaFlL643g884pNK56F4Q+7UEm5nAV8nzpVDMxBWrLsjVfBa/n47fI2NIpU=
+  skip_cleanup: true
+  file:
+  - 'production.zip'
+  on:
+    tags: true
+- provider: pages
+  skip_cleanup: true
+  local_dir: client/dist
+  github_token:
+    secure: gPa+9XhXWNzc/B+9RMJuvk/60VedNMx5gmNFhZDbSxL8EpdM5d/eI3tQHobRCJmKmBEKL8S1VVi0HAECOG3E80ZiZNgHzyJlVVpRwNgh8D+SRoGY9DF5klYtFZaBu/ICSYxlZwwRoBs/E/LqwQofhQ3sJnkPzQmwjrADQmCnlRNl5s/ofmR5H0QXhOz+qjCua7lAqrnD83IWipEu6Dxh9dJhRLmp9Y33TWPjQwFocNZPYKZv7BV1XpLZ6Gaylso2y0YGc16fmFcUJdEMMd8h6hdyH1AijOc7pJg8G6z3PEwKb9FRcboMbRZ4omIXJOQRZsYD0l7xvtuFdLmwR5a5+A23P0HRSuzcC1KNSFzEFY9zH+lbTCTShrX5XMQSnMdBlY66xoNgnsGS/l1U34JOb930WYel2plEgAXQHfngDczt+bvLQZaOEUJeuCKh9fCyVMxOtZExp0lTshYJdzncEX/rBqiaI8GTqxW2arUD/Jp5Fst9hzztXH+YTL2rq0QjP0//W0zX3bYFaYFTQ4t4Oaaq4Nx1EHzHESaja2B6sysbmNoTn0OHGE/HKNJPXJedRjuHOfsSEiiqZgYUIKg7qeSknvkKObbkwuDNVOBW19kMFSMiUpaFlL643g884pNK56F4Q+7UEm5nAV8nzpVDMxBWrLsjVfBa/n47fI2NIpU=
+  on:
+    tags: true

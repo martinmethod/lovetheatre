@@ -1,0 +1,157 @@
+//====================================================|
+// NAV
+
+
+//--------------------------| Data
+
+$nav-color: map-get($roles-col-backgrounds, 'bar');
+$nav-font-face: map-get($roles-typo-font-families, 'nav');
+
+
+//--------------------------| Variables
+
+$content-color: map-get($roles-col-texts, 'negative');
+
+$mobile-stage-bgr-color: dark($nav-color, 30%);
+$mobile-stage-min-side-space: map-get($roles-spaces-min, 'page') / 2;
+$mobile-stage-min-width: calc(#{map-get($swatch-screens, 'min')} - #{get-rem-unit($mobile-stage-min-side-space * 2)});
+
+$mobile-toggle-size: $roles-size-header-icons;
+$mobile-toggle-offset: $roles-size-header-icons;
+
+
+//--------------------------| Root
+
+.root {
+  display: flex;
+  font-family: $nav-font-face;
+  color: $content-color;
+
+  @include mq-screen-size-type('desktop') {
+    flex: 1;
+  }
+}
+
+
+//--------------------------| Checkbox toggle
+
+.nav-module {
+  display: flex;
+}
+
+
+//--------------------------| Checkbox toggle
+
+.checkbox-toggle {
+  @include dimensions-square(0);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+}
+
+
+//--------------------------| Mobile toggle
+
+.mobile-toggle {
+  &,
+  > svg {
+    @include dimensions-square(get-rem-unit($mobile-toggle-size));
+  }
+}
+
+
+//--------------------------| Main toggle
+
+.main-toggle {
+  @include color-states(dark, fill);
+
+  @include mq-screen-size-type('mobile') {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+//--------------------------| X toggle
+
+.x-toggle {
+  position: absolute;
+
+  @include mq-screen-size-type('mobile') {
+    @include color-states(dark);
+
+    top: 0;
+    left: 50%;
+    margin: get-rem-unit($mobile-toggle-offset) auto;
+    transform: translateX(-50%);
+  }
+
+  &,
+  span,
+  span::after {
+    display: block;
+  }
+
+  span {
+    &::after {
+      $font: map-get($swatch-font-weights, 'bold') #{1.4rem/1} map-get($roles-typo-font-families, 'sys');
+
+      font: $font;
+      text-align: center;
+      content: '✕';
+    }
+  }
+}
+
+
+//--------------------------| Stage
+
+.stage {
+  display: flex;
+
+  @include mq-screen-size-type('mobile') {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    width: calc(100% - #{get-rem-unit(10px)});
+    min-width: $mobile-stage-min-width;
+    max-width: 480px;
+    padding: get-rem-unit(($mobile-toggle-offset * 2) + $mobile-toggle-size) get-rem-unit(map-get($roles-spaces-min, 'page')) get-rem-unit($mobile-toggle-offset);
+    overflow: hidden;
+    background-color: $mobile-stage-bgr-color;
+    box-shadow: map-get($roles-shadows, 'mobile-panel');
+
+    .checkbox-toggle:not(:checked) ~ & {
+      transform: translate(-50%, -400%);
+    }
+
+    .checkbox-toggle:checked ~ & {
+      transform: translate(-50%, -5px);
+    }
+  }
+
+  // The transition is set inside hover state on purpose to prevent visual glitch when switching between full size & mobile navigation.
+  &:hover,
+  .mobile-toggle:hover + & {
+    transition: transform map-get($roles-transitions, 'slide') ease-in-out;
+  }
+}
+
+
+//--------------------------| Search box
+
+// the purpose of this is to hide the season when extended in desktop mode
+.search-box {
+  @include mq-screen-size-type('desktop') {
+    .stage {
+      position: relative;
+      z-index: 1;
+      background-color: $nav-color;
+    }
+  }
+}

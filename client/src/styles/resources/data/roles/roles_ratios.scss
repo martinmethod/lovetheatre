@@ -1,0 +1,13 @@
+//====================================================|
+// ROLES: RATIOS
+
+
+$roles-ratios: (
+  'avatar': map-get($swatch-ratios, '1.0'),
+  'font': map-get($swatch-ratios, '1.2'),
+  'space': map-get($swatch-ratios, '4.2'),
+  'cover': map-get($swatch-ratios, '2.8'),
+  'portrait': map-get($swatch-ratios, '0.6'),
+  'landscape': map-get($swatch-ratios, '1.4'),
+  'map': map-get($swatch-ratios, '1.6')
+);

@@ -1,0 +1,11 @@
+{
+  "home": "/",
+  "events": "/events",
+  "plays": "/plays",
+  "actors": "/actors",
+  "news": "/news",
+  "about": "/about",
+  "contacts": "/contacts",
+  "conditions": "/conditions",
+  "search": "/search"
+}

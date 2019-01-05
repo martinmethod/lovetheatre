@@ -1,0 +1,13 @@
+//====================================================|
+// SEASON
+
+
+//--------------------------| Root
+
+.root {
+  align-self: center;
+  font: map-get($roles-typo-font-shorthands, 'season');
+  color: map-get($roles-col-texts, 'negative');
+  white-space: nowrap;
+  opacity: 0.5;
+}

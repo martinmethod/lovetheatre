@@ -1,0 +1,27 @@
+//====================================================|
+// FUNCTIONS: UNITS
+
+
+//--------------------------| Strip unit
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+//--------------------------| Get rem unit
+
+@function get-rem-unit($num) {
+  @return #{strip-unit($num) / strip-unit($base-html-font-size)}rem;
+}
+
+
+//--------------------------| Get screen percent
+
+@function get-screen-percent($width, $screen: map-get($swatch-screens, 'min')) {
+  @return unquote('#{$width * 100 / $screen}%');
+}

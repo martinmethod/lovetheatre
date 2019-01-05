@@ -1,0 +1,38 @@
+//====================================================|
+// TOKENS: LINKS
+
+
+//--------------------------| Light
+
+.link-light {
+  @include color-states();
+}
+
+
+//--------------------------| Dark
+
+.link-dark {
+  @include color-states('dark');
+}
+
+
+//--------------------------| White
+
+.link-white {
+  @include color-states('white');
+}
+
+
+//--------------------------| Text
+
+.link-text {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  transition: color map-get($roles-transitions, 'navitems') ease-in-out, border-bottom-color map-get($roles-transitions, 'navitems') ease-in-out;
+
+  @media (hover: hover) {
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+}

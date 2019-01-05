@@ -1,0 +1,60 @@
+//====================================================|
+// ROLES: COLORS
+
+
+//--------------------------| States
+
+$roles-col-states: (
+  'selected':    map-get($swatch-colors, 'red-dark')
+);
+
+
+//--------------------------| Text
+
+$roles-col-texts: (
+  'title':       map-get($swatch-colors, 'mine-shaft'),
+  'text':        map-get($swatch-colors, 'mine-shaft'),
+  'sys':         map-get($swatch-colors, 'dove-gray'),
+  'input':       map-get($swatch-colors, 'mine-shaft'),
+  'placeholder': map-get($swatch-colors, 'dove-gray'),
+  'negative':    map-get($swatch-colors, 'white'),
+  'error':       map-get($swatch-colors, 'red-dark')
+);
+
+
+//--------------------------| Links
+
+$roles-col-links: (
+  'white': (
+    'link':        map-get($swatch-colors, 'white'),
+    'hover':       map-get($swatch-colors, 'white'),
+    'active':      map-get($swatch-colors, 'white')
+  ),
+  'light': (
+    'link':        map-get($swatch-colors, 'purple-dark'),
+    'hover':       map-get($swatch-colors, 'red-dark'),
+    'active':      map-get($swatch-colors, 'red-light')
+  ),
+  'dark': (
+    'link':        map-get($swatch-colors, 'white'),
+    'hover':       map-get($swatch-colors, 'purple-light'),
+    'active':      light(map-get($swatch-colors, 'purple-light'), 30%)
+  )
+);
+
+
+//--------------------------| Backgrounds
+
+$roles-col-backgrounds: (
+  'space':         map-get($swatch-backgrounds, 'alto'),
+  'app':           map-get($swatch-backgrounds, 'white'),
+  'header':        map-get($swatch-backgrounds, 'white'),
+  'bar':           map-get($swatch-backgrounds, 'purple-dark'),
+  'curtain':       map-get($swatch-backgrounds, 'red-dark'),
+  'hotline':       map-get($swatch-backgrounds, 'red-dark'),
+  'premieres':     map-get($swatch-backgrounds, 'purple-dark'),
+  'footer':        map-get($swatch-backgrounds, 'black'),
+  'big-stage':     map-get($swatch-backgrounds, 'purple-pale'),
+  'chamber-stage': map-get($swatch-backgrounds, 'red-pale'),
+  'info-bar':      map-get($swatch-backgrounds, 'yellow-pale')
+);

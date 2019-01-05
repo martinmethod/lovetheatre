@@ -1,0 +1,39 @@
+//====================================================|
+// JUMBOTRON
+
+
+//--------------------------| Root
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  > a {
+    display: block;
+  }
+}
+
+
+//--------------------------| Cover image
+
+.image {
+  //
+}
+
+
+//--------------------------| Hotline
+
+.hotline {
+  margin-top: 1px;
+  transition: background-color map-get($roles-transitions, 'navitems') ease-in-out;
+
+  @media (hover: hover) {
+    .root:hover:not(:active) > a & {
+      background-color: lighten(map-get-deep($roles-col-links, 'light', 'hover'), 5%);
+    }
+  }
+
+  .root:active > a & {
+    background-color: lighten(map-get-deep($roles-col-links, 'light', 'hover'), 10%);
+  }
+}

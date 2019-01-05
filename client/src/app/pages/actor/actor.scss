@@ -1,0 +1,64 @@
+//====================================================|
+// ACTOR
+
+
+//--------------------------| Variables
+
+$space: map-get($roles-spaces-min, 'page');
+
+
+//--------------------------| Root
+
+.root {
+  //
+}
+
+
+//--------------------------| Main
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  @include mq-m() {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+
+//--------------------------| Poster
+
+.avatar {
+  width: 100%;
+
+  @include mq-xs() {
+    max-width: 20rem;
+  }
+
+  @include mq-m() {
+    @include scaler(margin-right, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+
+    width: get-screen-percent((map-get($swatch-screens, 'min') - ($space * 2)) / 3);
+    max-width: none;
+  }
+}
+
+
+//--------------------------| Description
+
+.summary {
+  white-space: pre-wrap;
+
+  @include mq-m() {
+    //width: get-screen-percent(map-get($swatch-screens, 'min') - $space - (map-get($swatch-screens, 'min') / 3));
+
+    > div {
+      margin: 0;
+    }
+  }
+}

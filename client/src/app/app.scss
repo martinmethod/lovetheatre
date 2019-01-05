@@ -1,0 +1,32 @@
+//====================================================|
+// APP
+
+
+//--------------------------| Variables
+
+//
+
+
+//--------------------------| Root
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-width: map-get($swatch-screens, 'min');
+  //max-width: map-get($swatch-screens, 'max');
+  min-height: 100vh;
+  margin: 0 auto;
+  font: map-get($roles-typo-font-shorthands, 'text');
+  background-color: map-get($roles-col-backgrounds, 'app');
+  //box-shadow: map-get($roles-shadows, 'app');
+}
+
+.main {
+  //@include side-spacer();
+  //@include padding-v(1rem);
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}

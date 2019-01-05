@@ -1,0 +1,19 @@
+//====================================================|
+// SWATCHES: BORDERS
+
+
+//--------------------------| Types
+
+$swatch-borders: (
+  '1px-solid-alpha': 1px solid transparent,
+  '2px-solid-alpha': 2px solid transparent,
+  '1px-solid-white': 1px solid map-get($swatch-colors, 'white'),
+  '2px-solid-white': 2px solid map-get($swatch-colors, 'white')
+);
+
+
+//--------------------------| Radiuses
+
+$swatch-border-radiuses: (
+  'circle': 50%
+);

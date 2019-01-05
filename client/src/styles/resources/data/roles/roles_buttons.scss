@@ -1,0 +1,12 @@
+//====================================================|
+// ROLES: BUTTONS
+
+
+//--------------------------| Types
+
+$roles-button-types: (
+  'primary': (
+    'txt-color': map-get($swatch-colors, 'white'),
+    'bgr-color': map-get($swatch-backgrounds, 'red-dark')
+  )
+);

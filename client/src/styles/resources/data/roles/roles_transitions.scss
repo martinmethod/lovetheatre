@@ -1,0 +1,8 @@
+//====================================================|
+// ROLES: TRANSITIONS
+
+
+$roles-transitions: (
+  'navitems': map-get($swatch-transitions, '150ms'),
+  'slide': map-get($swatch-transitions, '200ms')
+);

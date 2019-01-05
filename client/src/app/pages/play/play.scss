@@ -1,0 +1,150 @@
+//====================================================|
+// PLAY
+
+
+//--------------------------| Variables
+
+$space: map-get($roles-spaces-min, 'page');
+
+
+//--------------------------| Root
+
+.root {
+  //
+}
+
+
+//--------------------------| Main
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  @include mq-s() {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: normal;
+    justify-content: space-around;
+  }
+
+  @include mq-l() {
+    justify-content: space-between;
+
+    > * {
+      width: get-screen-percent((map-get($swatch-screens, 'min') - ($space * 2)) / 3) !important;
+    }
+  }
+}
+
+
+//--------------------------| Description
+
+.description {
+  order: 2;
+  white-space: pre-wrap;
+
+  @include mq-xs() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - $space ) / 2);
+    margin-right: get-screen-percent($space);
+  }
+
+  @include mq-l() {
+    order: 1;
+    margin: 0 !important;
+  }
+}
+
+
+//--------------------------| Poster
+
+.poster {
+  order: 1;
+  width: 100%;
+
+  @include mq-xs() {
+    padding: 0 20%;
+  }
+
+  @include mq-l() {
+    order: 2;
+    padding: 0 !important;
+  }
+}
+
+
+//--------------------------| Details
+
+.details {
+  $dt-width: 6rem;
+  $offset: 0.5rem;
+  $dd-width: calc(100% - #{$dt-width + $offset});
+
+  order: 3;
+
+  dt,
+  dd {
+    display: inline-block;
+  }
+
+  dl {
+    display: flex;
+  }
+
+  dt {
+    width: $dt-width;
+    font-style: italic;
+    text-align: right;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  dd {
+    flex: 1;
+    width: $dd-width;
+    margin-left: get-rem-unit($space);
+    font-weight: map-get($roles-typo-font-weights, 'def');
+
+    p {
+      margin: 0;
+    }
+
+    span,
+    a {
+      @util truncate;
+    }
+  }
+}
+
+
+//--------------------------| Details
+
+/* stylelint-disable */
+:global {
+  .image-gallery-fullscreen-button:hover::before,
+  .image-gallery-play-button:hover::before,
+  .image-gallery-left-nav:hover::before,
+  .image-gallery-right-nav:hover::before {
+    color: map-get-deep($roles-col-links, 'dark', 'hover') !important;
+  }
+
+  .image-gallery-fullscreen-button:active::before,
+  .image-gallery-play-button:active::before,
+  .image-gallery-left-nav:active::before,
+  .image-gallery-right-nav:active::before {
+    color: map-get-deep($roles-col-links, 'dark', 'active') !important;
+  }
+
+  .image-gallery-thumbnail {
+    width: 100% !important;
+
+    &.active {
+      border-color: map-get($roles-col-states, 'selected') !important;
+    }
+  }
+}
+/* stylelint-enable */

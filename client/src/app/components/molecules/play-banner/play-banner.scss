@@ -1,0 +1,33 @@
+//====================================================|
+// PLAY BANNER
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  display: block;
+  text-align: center;
+
+  h3 {
+    display: inline;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+
+//--------------------------| Thumb
+
+.thumb {
+  @include thumb-link-states();
+}
+
+
+//--------------------------| Details
+
+.details {
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,11 @@
+//====================================================|
+// TOKENS: SPACES
+
+
+//--------------------------|
+
+.space-page-section {
+  @include side-spacer();
+  @include padding-v($roles-spaces-vertical);
+}
+

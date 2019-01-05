@@ -1,0 +1,23 @@
+//====================================================|
+// SWATCHES: BACKGROUNDS
+
+
+$swatch-backgrounds: (
+
+  'white':       map-get($swatch-colors, 'white'),
+
+  'black':       map-get($swatch-colors, 'black'),
+
+  'alto':        map-get($swatch-colors, 'alto'),
+
+  'red-pale':    map-get($swatch-colors, 'red-pale'),
+
+  'red-dark':    map-get($swatch-colors, 'red-dark'),
+
+  'purple-pale': map-get($swatch-colors, 'purple-pale'),
+
+  'purple-dark': map-get($swatch-colors, 'purple-dark'),
+
+  'yellow-pale': map-get($swatch-colors, 'yellow-pale')
+
+);

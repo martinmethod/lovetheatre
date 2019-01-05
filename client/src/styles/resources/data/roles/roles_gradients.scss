@@ -1,0 +1,11 @@
+//====================================================|
+// ROLES: GRADIENTS
+
+
+$roles-gradients: (
+  'stage': unquote(map-get($swatch-gradients, 'white2purple')),
+  'thumb': unquote(map-get($swatch-gradients, 'gray2white')),
+  'thumb-link': unquote(map-get($swatch-gradients, 'purpledark2white')),
+  'thumb-link-hover': unquote(map-get($swatch-gradients, 'reddark2white')),
+  'thumb-link-active': unquote(map-get($swatch-gradients, 'redlight2white'))
+);

@@ -1,0 +1,36 @@
+//====================================================|
+// BAR
+
+
+//--------------------------| Root
+
+.root {
+  @include font-smoothing();
+  @include padding-v(0.6rem);
+  @include side-spacer();
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: map-get($roles-col-backgrounds, 'bar');
+  border-bottom: map-get($roles-borders-separators, 'white');
+
+  @include mq-screen-size-type('mobile') {
+    justify-content: center;
+  }
+
+  @include mq-screen-size-type('desktop') {
+    @include scaler(padding-left, (map-get($roles-spaces-min, 'page') /2), (42px / 2));
+
+    justify-content: space-between;
+  }
+}
+
+.season {
+  @include mq-screen-size-type('desktop') {
+    @include scaler(right, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+
+    position: absolute;
+    padding-right: 1px; // hide visual dot when search bar is extended in desktop mode
+  }
+}

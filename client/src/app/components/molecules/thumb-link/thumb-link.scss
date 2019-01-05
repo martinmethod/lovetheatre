@@ -1,0 +1,26 @@
+//====================================================|
+// THUMB LINK
+
+
+//--------------------------| Root
+
+.root {
+  line-height: 1.4;
+  text-align: center;
+}
+
+
+//--------------------------| Thumb
+
+.thumb {
+  @include thumb-link-states();
+
+  display: block;
+}
+
+
+//--------------------------| Title
+
+.title {
+  font-size: map-get($roles-typo-font-sizes, 'thumb');
+}

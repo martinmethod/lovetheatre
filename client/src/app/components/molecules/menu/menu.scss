@@ -1,0 +1,78 @@
+//====================================================|
+// MENU
+
+
+//--------------------------| Root
+
+.root {
+  @include mq-screen-size-type('mobile') {
+    ul {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  ul {
+    display: flex;
+  }
+}
+
+
+//--------------------------| Main toggle
+
+.main-toggle {
+  @include mq-screen-size-type('mobile') {
+    @include scaler(left, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+  }
+
+  @include mq-screen-size-type('desktop') {
+    display: none;
+  }
+}
+
+
+//--------------------------| Main toggle
+
+.x-toggle {
+  @include mq-screen-size-type('desktop') {
+    display: none;
+  }
+}
+
+
+//--------------------------| Menu item
+
+.menu-item {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.7;
+  white-space: nowrap;
+  border-radius: 3px;
+
+  > a {
+    @include color-states('dark');
+    @include side-spacer((map-get($roles-spaces-min, 'page') / 2), (map-get($roles-spaces-max, 'page') / 2));
+
+    display: block;
+    font-style: italic;
+    letter-spacing: 0.02rem;
+    transition: background-color map-get($roles-transitions, 'navitems') ease-in-out;
+
+    @include mq-screen-size-type('mobile') {
+      padding: 0.6rem 0;
+    }
+  }
+
+  > .current {
+    pointer-events: none;
+    background-color: light(map-get($roles-col-backgrounds, 'bar'), 20%);
+  }
+}

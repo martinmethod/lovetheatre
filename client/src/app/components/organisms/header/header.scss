@@ -1,0 +1,20 @@
+//====================================================|
+// HEADER
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: get-rem-unit($roles-size-topline);
+    content: '';
+    background-color: map-get($roles-col-backgrounds, 'curtain');
+  }
+}

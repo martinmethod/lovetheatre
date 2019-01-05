@@ -1,0 +1,38 @@
+//====================================================|
+// ERROR BLOCK
+
+
+//--------------------------| Root
+
+.root {
+  text-align: center;
+
+  label {
+    display: block;
+    margin-top: 2rem;
+  }
+
+  h2 {
+    margin: 2rem;
+  }
+
+  p {
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  li {
+    text-align: left;
+  }
+}
+
+
+//--------------------------| Options
+
+.options {
+  margin-top: 2rem;
+}

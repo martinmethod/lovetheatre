@@ -1,0 +1,42 @@
+//====================================================|
+// PREMIERE BAR
+
+
+//--------------------------| Root
+
+.root {
+  @include side-spacer();
+  @include padding-v(0.5rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: map-get($roles-col-backgrounds, 'app');
+
+  aside {
+    label {
+      display: inline-block;
+      width: 3.2rem;
+      margin-right: 0.2rem;
+      text-align: right;
+    }
+
+    > span {
+      display: block;
+      margin: 0.2rem 0;
+      color: map-get($roles-col-texts, 'text');
+    }
+  }
+}
+
+
+//--------------------------| Main
+
+.main {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+}

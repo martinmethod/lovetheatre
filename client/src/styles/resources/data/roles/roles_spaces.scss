@@ -1,0 +1,17 @@
+//====================================================|
+// ROLES: SPACES
+
+
+$roles-spaces-min: (
+  'page': map-get($swatch-spaces, '10'),
+  'header': map-get($swatch-spaces, '10'),
+  'footer': map-get($swatch-spaces, '10')
+);
+
+$roles-spaces-max: (
+  'page': map-get($roles-spaces-min, 'page') * map-get($roles-ratios, 'space'),
+  'header': map-get($roles-spaces-min, 'header') * map-get($roles-ratios, 'space'),
+  'footer': map-get($roles-spaces-min, 'footer') * map-get($roles-ratios, 'space')
+);
+
+$roles-spaces-vertical: 2rem;

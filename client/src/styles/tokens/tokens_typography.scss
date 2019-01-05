@@ -1,0 +1,11 @@
+//====================================================|
+// TOKENS: SPACES
+
+
+//--------------------------|
+
+.text {
+  @include selection(map-get($swatch-colors, 'purple-light'));
+
+  user-select: text;
+}

@@ -1,0 +1,27 @@
+//====================================================|
+// EVENT BAR
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  padding: 1rem 0.6rem;
+  margin-top: 0.3rem;
+  text-align: center;
+
+  span {
+    color: map-get($roles-col-texts, 'text');
+  }
+}
+
+
+//--------------------------| Box types
+
+.big {
+  background-color: map-get($roles-col-backgrounds, 'big-stage');
+}
+
+.chamber {
+  background-color: map-get($roles-col-backgrounds, 'chamber-stage');
+}

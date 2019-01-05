@@ -1,0 +1,46 @@
+//====================================================|
+// ITEMS LIST
+
+
+//--------------------------| List
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -1.9rem;
+}
+
+
+//--------------------------| Item
+
+.item {
+  $space: map-get($roles-spaces-min, 'page');
+
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @include mq-xs() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - $space ) / 2);
+    margin-right: get-screen-percent($space);
+
+    &:nth-child(2n+2) {
+      margin-right: 0;
+    }
+  }
+
+  @include mq-m() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - ($space * 2)) / 3);
+
+    &:nth-child(2n+2) {
+      margin-right: get-screen-percent($space);
+    }
+
+    &:nth-child(3n+3) {
+      margin-right: 0;
+    }
+  }
+
+  .center &:only-child {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,116 @@
+//====================================================|
+// SEARCH BOX
+
+
+//--------------------------| Variables
+
+//
+
+
+//--------------------------| Root
+
+.root {
+  @include mq-screen-size-type('desktop') {
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+
+    nav + & {
+      @include scaler(margin-left, map-get($roles-spaces-min, 'page') / 2, map-get($roles-spaces-max, 'page') / 2);
+    }
+  }
+}
+
+
+//--------------------------| Form
+
+.form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+//--------------------------| Main toggle
+
+.main-toggle {
+  @include mq-screen-size-type('mobile') {
+    @include scaler(right, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+  }
+
+  @include mq-screen-size-type('desktop') {
+    .checkbox-toggle:checked ~ & {
+      display: none;
+    }
+  }
+}
+
+
+//--------------------------| X toggle
+
+.x-toggle {
+  @include mq-screen-size-type('desktop') {
+    $size: 0.8rem;
+
+    @include dimensions-square($size);
+    @include color-states();
+
+    top: 0.52rem;
+    left: 0.3rem;
+    display: block;
+
+    > span::after {
+      font-size: $size;
+    }
+  }
+}
+
+
+//--------------------------| Stage
+
+.stage {
+  @include mq-screen-size-type('desktop') {
+    flex: 1;
+
+    .checkbox-toggle:not(:checked) ~ & {
+      transform: translate(102%, 0); // 102% and not 100% just to prevent visual bug on some screen sizes
+    }
+
+    .checkbox-toggle:checked ~ & {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+
+//--------------------------| Textfield
+
+.textfield {
+  @include dimensions-square(100%);
+  @include input-placeholder();
+  @include selection(map-get($swatch-colors, 'purple-light'));
+
+  display: block;
+  padding: 0.1rem 0.4rem;
+  border: 0;
+  border-radius: 0;
+  appearance: none !important; // needed "!important" due to high priority [type="search"] declaration in Normalize.css
+
+  @include mq-screen-size-type('desktop') {
+    padding-left: get-rem-unit(26px);
+  }
+}
+
+
+//--------------------------| Button
+
+.button {
+  @include dimensions-square(get-rem-unit(27.6px));
+  @include color-states(dark, fill);
+
+  display: block;
+  padding: 0;
+  margin-left: 0.5rem;
+  background-color: transparent;
+  border: 0;
+}

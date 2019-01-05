@@ -1,0 +1,17 @@
+//====================================================|
+// SWATCHES: GRADIENTS
+
+
+$swatch-gradients: (
+  'checkboard': 'linear-gradient(45deg, #d2d2d2 25%, transparent 25%), linear-gradient(-45deg, #d2d2d2 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d2d2d2 75%), linear-gradient(-45deg, transparent 75%, #d2d2d2 75%)',
+
+  'white2purple': 'linear-gradient(to bottom, #{map-get($swatch-colors, 'white')} 0%, #{map-get($swatch-colors, 'white')} 66%, #e2e2ff 100%)',
+
+  'gray2white': 'linear-gradient(#{map-get($swatch-colors, 'dusty-gray')} 0%, #{map-get($swatch-colors, 'white')} 66%), linear-gradient(#{map-get($swatch-colors, 'dusty-gray')} 0%, #{map-get($swatch-colors, 'white')} 66%)',
+
+  'purpledark2white': 'linear-gradient(#{map-get($swatch-colors, 'purple-dark')} 0%, #{map-get($swatch-colors, 'white')} 66%), linear-gradient(#{map-get($swatch-colors, 'purple-dark')} 0%, #{map-get($swatch-colors, 'white')} 66%)',
+
+  'reddark2white': 'linear-gradient(#{map-get($swatch-colors, 'red-dark')} 0%, #{map-get($swatch-colors, 'white')} 66%), linear-gradient(#{map-get($swatch-colors, 'red-dark')} 0%, #{map-get($swatch-colors, 'white')} 66%)',
+
+  'redlight2white': 'linear-gradient(#{map-get($swatch-colors, 'red-light')} 0%, #{map-get($swatch-colors, 'white')} 66%), linear-gradient(#{map-get($swatch-colors, 'red-light')} 0%, #{map-get($swatch-colors, 'white')} 66%)'
+);

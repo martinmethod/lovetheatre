@@ -1,0 +1,130 @@
+//====================================================|
+// FOOTER
+
+
+//--------------------------| Variables
+
+$link-color: map-get-deep($roles-col-links, 'dark', 'link');
+$link-color-hover: map-get-deep($roles-col-links, 'dark', 'hover');
+$link-color-active: map-get-deep($roles-col-links, 'dark', 'active');
+
+$bgr-color: map-get($roles-col-backgrounds, 'footer');
+
+
+//--------------------------| Root
+
+.root {
+  @include font-smoothing();
+  @include side-spacer(map-get($roles-spaces-min, 'footer'), map-get($roles-spaces-max, 'footer'));
+  @include padding-v(2rem);
+
+  position: relative;
+  margin-top: 2rem;
+  overflow: hidden;
+  font-size: map-get($roles-typo-font-sizes, 'footer');
+  color: map-get($roles-col-texts, 'negative');
+  text-align: center;
+
+  a {
+    color: $link-color;
+
+    @media (hover: hover) {
+      &:hover:not(:active) {
+        color: $link-color-hover;
+      }
+    }
+
+    &:active {
+      color: $link-color-active;
+    }
+  }
+}
+
+
+//--------------------------| Background
+
+.bgr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background-color: $bgr-color;
+  //transform: perspective(200px) rotateX(20deg);
+}
+
+
+//--------------------------| Content
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+//--------------------------| Spotlight
+
+@at-root {
+  $w: map-get($roles-size-footer-spotlight, 'width');
+  $h: map-get($roles-size-footer-spotlight, 'height');
+
+  .spotlight {
+    position: relative;
+    width: get-rem-unit($w);
+    height: get-rem-unit($h);
+  }
+
+  .spot {
+    @include dimensions-square(100%);
+
+    position: absolute;
+    background: map-get($roles-col-backgrounds, 'app');
+    border-radius: #{get-rem-unit($w / 2)} / #{get-rem-unit($h / 2)};
+    transform: rotate(-5deg);
+  }
+}
+
+
+//--------------------------| Logo
+
+.logo {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: get-rem-unit($roles-size-footer-logo);
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.active-logo {
+  pointer-events: none;
+}
+
+
+//--------------------------| Data
+
+.data {
+  margin-top: 1.5rem;
+
+  p {
+    margin: 0 0 1rem;
+  }
+
+  strong {
+    letter-spacing: 0.02rem;
+  }
+}
+
+
+//--------------------------| Separator
+
+.separator {
+  @include mq-device-holding-type('outpocket') {
+    display: none;
+  }
+}

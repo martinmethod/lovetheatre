@@ -1,0 +1,15 @@
+//====================================================|
+// DIVIDER
+
+
+//--------------------------| Root
+
+.root {
+  display: block;
+  width: get-rem-unit($roles-size-divider);
+  margin: $roles-spaces-vertical * 2 auto;
+
+  [class='c2'] {
+    fill: map-get($swatch-colors, 'red-dark');
+  }
+}

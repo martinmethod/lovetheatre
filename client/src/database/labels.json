@@ -1,0 +1,49 @@
+{
+  "pages": {
+    "home": "Начало",
+    "events": "Програма",
+    "plays": "Репертоар",
+    "actors": "Актьори",
+    "news": "Новини",
+    "about": "За нас",
+    "contacts": "Контакти",
+    "search": "Резултати от търсене",
+    "conditions": "Условия за ползване"
+  },
+  "errors": {
+    "error404": "Грешка 404",
+    "noResults": "Няма намерени резултати"
+  },
+  "errorsOptions": {
+    "back": "Върнете се стъпка назад.",
+    "search": "Проверете в търсачката.",
+    "searchAgain": "Потърсете отново.",
+    "home": "Вижте Първа страница."
+  },
+  "searchPlaceholder": "Търсене",
+  "season": "сезон",
+  "author": "Автор",
+  "director": "Режисьор",
+  "screenplay": "Сценография",
+  "compositor": "Композитор",
+  "photograph": "Фотограф",
+  "cast": "Актьори",
+  "premiere": "Премиера",
+  "premieres": "Премиери",
+  "latestNews": "Новини",
+  "gallery": "Галерия",
+  "participations": "Участия",
+  "upcoming": "Предстоящи",
+  "upcomingPremiere": "Предстояща премиера",
+  "upcomingEvents": "Предстоящи представления",
+  "expectSoon": "Очаквайте скоро",
+  "duringMonth": "през месец",
+  "expectNextMonth": "Очаквайте скоро програмата и за месец",
+  "whatYouCanDo": "Ето какво може да направите от тук насетне:",
+  "showBGMaps": "Покажи карта на BGMaps.com",
+  "showGMaps": "Покажи карта на Google Maps",
+  "noSuchPage": "Няма такава страница!",
+  "re": "за",
+  "within": "В",
+  "year": "г."
+}

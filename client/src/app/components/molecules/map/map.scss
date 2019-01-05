@@ -1,0 +1,46 @@
+//====================================================|
+// MAP
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  padding-top: calc(#{100% / map-get($roles-ratios, 'map')} + 3rem);
+  text-align: center;
+
+  [class='react-card-flip'] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 3rem);
+
+    div {
+      height: 100%;
+    }
+  }
+}
+
+
+//--------------------------| Frame
+
+.frame {
+  margin-bottom: 1rem;
+
+  iframe {
+    @include dimensions-square(100%);
+
+    display: block;
+    border: 0;
+  }
+}
+
+
+//--------------------------| Switch
+
+.switch {
+  //
+}

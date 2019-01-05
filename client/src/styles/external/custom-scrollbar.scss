@@ -1,0 +1,31 @@
+//====================================================|
+// EXTERNAL: CUSTOM SCROLLBAR
+
+
+:global {
+
+  .rcs-custom-scroll {
+
+    //--------------------------| Handle
+
+    .rcs-custom-scroll-handle {
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+
+    //--------------------------| Bar
+
+    .rcs-inner-handle {
+      background-color: rgba(map-get($swatch-colors, 'black'), 0.3);
+      transition: background-color 0.15s linear;
+
+      &:hover,
+      &:active {
+        background-color: rgba(map-get($swatch-colors, 'black'), 0.6);
+      }
+    }
+
+  } // .rcs-custom-scroll
+
+} // :global

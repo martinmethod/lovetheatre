@@ -1,0 +1,16 @@
+//====================================================|
+// INFO BAR
+
+
+//--------------------------| Variables
+
+//
+
+
+//--------------------------| Root
+
+.root {
+  padding: 0.6rem;
+  text-align: center;
+  background-color: map-get($roles-col-backgrounds, 'info-bar');
+}

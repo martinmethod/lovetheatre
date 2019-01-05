@@ -1,0 +1,37 @@
+//====================================================|
+// THUMBS LIST
+
+
+//--------------------------| Root
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include mq-m() {
+    flex-wrap: nowrap;
+  }
+}
+
+
+//--------------------------| Thumb link
+
+.thumb-link {
+  $space: map-get($roles-spaces-min, 'page');
+
+  width: get-screen-percent((map-get($swatch-screens, 'min') - $space) / 2);
+  margin-top: 1rem;
+
+  @include mq-xs() {
+    width: get-screen-percent((map-get($swatch-screens, 'min') - ($space * 2)) / 3);
+  }
+
+  @include mq-m() {
+    width: auto;
+
+    + .thumb-link {
+      @include scaler(margin-left, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+    }
+  }
+}

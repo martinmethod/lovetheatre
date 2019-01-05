@@ -1,0 +1,28 @@
+//====================================================|
+// SEARCH RESULTS
+
+
+//--------------------------| Root
+
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+
+//--------------------------| No results
+
+.no-results {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+//--------------------------| Results group
+
+.results-group {
+  //
+}

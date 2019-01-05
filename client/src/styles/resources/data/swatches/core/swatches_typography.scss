@@ -1,0 +1,43 @@
+//====================================================|
+// SWATCHES: TYPOGRAPHY
+
+
+//--------------------------| Font families
+
+$swatch-font-families: (
+  'lt–sans':   'lt–sans, sans-serif',
+  'lt–serif':  'lt–serif, serif',
+  'lt–script': 'lt–script, sans-serif'
+);
+
+
+//--------------------------| Font sizes
+
+$swatch-typo-font-sizes: (
+  '12': get-rem-unit(12),
+  '14': get-rem-unit(14),
+  '15': get-rem-unit(15),
+  '18': get-rem-unit(18),
+  '24': get-rem-unit(24),
+  '32': get-rem-unit(32),
+  '42': get-rem-unit(42)
+);
+
+
+//--------------------------| Font weights
+
+$swatch-font-weights: (
+  'regular':  400,
+  'medium':   500,
+  'semibold': 600,
+  'bold':     700
+);
+
+
+//--------------------------| Line-heights
+
+$swatch-line-heights: (
+  'normal': normal,
+  '100%': 1,
+  '130%': 1.3
+);

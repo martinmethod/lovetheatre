@@ -1,0 +1,15 @@
+//====================================================|
+// ERROR
+
+
+//--------------------------| Variables
+
+//
+
+
+//--------------------------| Root
+
+.root {
+  font: map-get($roles-typo-font-shorthands, 'error');
+  color: map-get($roles-col-texts, 'error');
+}

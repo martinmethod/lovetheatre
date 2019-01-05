@@ -1,0 +1,8 @@
+//====================================================|
+// ROLES: SHADOWS
+
+
+$roles-shadows: (
+  'app': map-get($swatch-shadows, 'medium'),
+  'mobile-panel': map-get($swatch-shadows, 'dark-sharp')
+);

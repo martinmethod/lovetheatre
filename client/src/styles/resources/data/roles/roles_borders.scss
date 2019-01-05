@@ -1,0 +1,16 @@
+//====================================================|
+// ROLES: BORDERS
+
+
+//--------------------------| Separators
+
+$roles-borders-separators: (
+  'white': map-get($swatch-borders, '1px-solid-white')
+);
+
+
+//--------------------------| Rectangles
+
+$roles-borders-rectangles: (
+  'transparent': map-get($swatch-borders, '2px-solid-alpha')
+);

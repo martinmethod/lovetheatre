@@ -1,0 +1,26 @@
+//====================================================|
+// MIXINS: SCALABILITY
+
+
+//--------------------------| Scaler
+
+@mixin scaler($property, $min-size, $max-size, $min-vw: map-get($swatch-screens, 'min'), $max-vw: map-get($swatch-screens, 'max')) {
+  & {
+    #{$property}: $min-size;
+
+    @media screen and (min-width: $min-vw) {
+      #{$property}: get-progressive-calc($min-size, $max-size);
+    }
+
+    @media screen and (min-width: $max-vw) {
+      #{$property}: #{($max-size * 100) / $max-vw}vw;
+    }
+  }
+}
+
+//--------------------------| Side spacer
+
+@mixin side-spacer($min: map-get($roles-spaces-min, 'page'), $max: map-get($roles-spaces-max, 'page')) {
+  @include scaler(padding-left, $min, $max);
+  @include scaler(padding-right, $min, $max);
+}

@@ -1,0 +1,65 @@
+//====================================================|
+// MIXINS: STATES
+
+
+//--------------------------| Link states
+
+@mixin link-states($type: light) {
+  color: map-get-deep($roles-col-links, $type, 'link');
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  transition: color map-get($roles-transitions, 'navitems') ease-in-out, border-bottom-color map-get($roles-transitions, 'navitems') ease-in-out;
+
+  @media (hover: hover) {
+    &:hover:not(:active) {
+      color: map-get-deep($roles-col-links, $type, 'hover');
+      border-bottom-color: transparent;
+    }
+  }
+
+  &:active {
+    color: map-get-deep($roles-col-links, $type, 'active');
+  }
+}
+
+
+//--------------------------| Color states
+
+@mixin color-states($type: light, $property: color) {
+  cursor: pointer;
+  #{$property}: map-get-deep($roles-col-links, $type, 'link');
+
+  > * {
+    transition: #{$property} map-get($roles-transitions, 'navitems') ease-in-out;
+  }
+
+  @media (hover: hover) {
+    &:hover:not(:active) > * {
+      #{$property}: map-get-deep($roles-col-links, $type, 'hover');
+    }
+  }
+
+  &:active > * {
+    #{$property}: map-get-deep($roles-col-links, $type, 'active');
+  }
+}
+
+
+//--------------------------| Thumb link states
+
+@mixin thumb-link-states($type: light) {
+  border-top-color: map-get-deep($roles-col-links, 'light', 'link');
+  background-image: map-get($roles-gradients, 'thumb-link');
+
+  @media (hover: hover) {
+    .root a:hover:not(:active) & {
+      border-top-color: map-get-deep($roles-col-links, 'light', 'hover');
+      background-image: map-get($roles-gradients, 'thumb-link-hover');
+    }
+  }
+
+  .root a:active & {
+    border-top-color: map-get-deep($roles-col-links, 'light', 'active');
+    background-image: map-get($roles-gradients, 'thumb-link-active');
+  }
+}

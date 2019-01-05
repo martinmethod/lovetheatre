@@ -1,0 +1,22 @@
+//====================================================|
+// AVATAR BANNER
+
+
+//--------------------------| Root
+
+.root {
+  position: relative;
+  display: block;
+  text-align: center;
+
+  h3 {
+    display: inline;
+  }
+}
+
+
+//--------------------------| Thumb
+
+.thumb {
+  @include thumb-link-states();
+}

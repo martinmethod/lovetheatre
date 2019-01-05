@@ -1,0 +1,43 @@
+//====================================================|
+// CONTACTS
+
+
+//--------------------------| Root
+
+.root {
+  //
+}
+
+
+//--------------------------| Layout
+
+.layout {
+  @include mq-screen-size-type('desktop') {
+    display: flex;
+  }
+}
+
+
+//--------------------------| Map
+
+.map {
+  @include mq-screen-size-type('desktop') {
+    @include scaler(margin-right, map-get($roles-spaces-min, 'page'), map-get($roles-spaces-max, 'page'));
+
+    width: 66%;
+  }
+}
+
+
+//--------------------------| Content
+
+.content {
+  @include mq-screen-size-type('desktop') {
+    flex: 1;
+    margin-top: -2rem;
+  }
+
+  p {
+    white-space: pre;
+  }
+}

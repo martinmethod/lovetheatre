@@ -1,0 +1,129 @@
+//====================================================|
+// SCAFFOLDINGS: BASE
+
+
+// Document
+//
+// 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+// 2. Change the default font family in all browsers.
+// 3. Correct the line height in all browsers.
+// 4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+// 5. Setting @viewport causes scrollbars to overlap content in IE11 and Edge, so
+//    we force a non-overlapping, non-auto-hiding scrollbar to counteract.
+// 6. Change the default tap highlight to be completely transparent in iOS.
+
+
+//--------------------------| Normalize
+
+@import 'normalize.css';
+
+
+//--------------------------| Box model
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+
+//--------------------------| Document
+
+html {
+  $min-font-size: map-get($roles-typo-font-sizes-base, 'min');
+  $max-font-size: map-get($roles-typo-font-sizes-base, 'max');
+
+  @include scaler(font-size, $min-font-size, $max-font-size);
+
+  -webkit-locale: 'bg';
+}
+
+body {
+  $square-size: 8px;
+
+  -webkit-tap-highlight-color: rgba(map-get($swatch-colors, 'black'), 0);
+  color: map-get($roles-col-texts, 'text');
+  //background-image: unquote(map-get($swatch-gradients, 'checkboard'));
+  //background-size: ($square-size * 2) ($square-size * 2);
+  //background-position: 0 0, 0 #{$square-size}, #{$square-size} -#{$square-size}, -#{$square-size} 0;
+  //background-attachment: fixed;
+  //background-color: map-get($roles-col-backgrounds, 'space');
+  user-select: none;
+
+  font-feature-settings: 'onum', 'ss04' 1; // Required in order to use the bulgarian cyrillic in Safari
+}
+
+:global {
+  #root {
+    //
+  }
+}
+
+
+//--------------------------| Form elements
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  appearance: none; /* display: none; <- Crashes Chrome on hover */
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  appearance: none;
+}
+
+input[type=text],
+input[type=search],
+textarea {
+  transition: box-shadow 0.30s ease-in-out;
+  box-shadow: inset 0 0 2px map-get($swatch-colors, 'purple-dark');
+
+  &:focus {
+    box-shadow: inset 0 0 5px map-get($swatch-colors, 'orange-dark');
+  }
+
+  line-height: map-get($roles-typo-line-heights, 'text');
+}
+
+
+//--------------------------| Text
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl {
+  &, * {
+    @include selection(map-get($swatch-colors, 'purple-light'));
+
+    user-select: text;
+  }
+}
+
+strong {
+  font-weight: map-get($swatch-font-weights, 'bold');
+}
+
+
+//--------------------------| Links
+
+a {
+  transition: color map-get($roles-transitions, 'navitems') ease;
+  text-decoration: none;
+}
+
+
+//--------------------------| Images
+
+img {
+  user-select: none;
+  pointer-events: none;
+}

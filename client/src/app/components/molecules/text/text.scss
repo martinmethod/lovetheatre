@@ -1,0 +1,32 @@
+//====================================================|
+// TEXT
+
+
+//--------------------------| Root
+
+.root {
+  max-width: #{strip-unit($roles-size-text) / strip-unit(map-get($roles-typo-font-sizes-base, 'max'))}rem;
+  margin: 0 auto;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    text-align: left;
+  }
+
+  h1 {
+    font: map-get($roles-typo-font-shorthands, 'title');
+    font-variant: small-caps;
+  }
+
+  h2 {
+    font: map-get($roles-typo-font-shorthands, 'subtitle');
+  }
+
+  a {
+    @include link-states();
+  }
+}

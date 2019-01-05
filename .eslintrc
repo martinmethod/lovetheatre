@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-console": 0,
+    "no-debugger": 0,
+    "no-unused-vars": 0,
+    "no-multiple-empty-lines": [1, {
+      "max": 3,
+      "maxBOF": 0,
+      "maxEOF": 0
+    }],
+    "comma-dangle": ["error", "never"],
+    "brace-style": ["error", "stroustrup"],
+    "spaced-comment": 0,
+    "react/prop-types": 0,
+    "operator-linebreak": ["error", "after"]
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.4.2"
+    },
+    "propWrapperFunctions": [ "forbidExtraProps" ]
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb-base"
+  ]
+}

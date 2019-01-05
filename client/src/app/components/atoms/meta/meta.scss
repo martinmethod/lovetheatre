@@ -1,0 +1,18 @@
+//====================================================|
+// META
+
+
+//--------------------------| Root
+
+.root {
+  @util truncate;
+
+  display: inline-block;
+  font: map-get($roles-typo-font-shorthands, 'sys');
+  color: map-get($roles-col-texts, 'sys');
+
+  span {
+    display: inline-block;
+    font-weight: map-get($swatch-font-weights, 'semibold');
+  }
+}

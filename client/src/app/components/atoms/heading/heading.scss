@@ -1,0 +1,32 @@
+//====================================================|
+// HEADING
+
+
+//--------------------------| Variables
+
+//
+
+
+//--------------------------| Root
+
+.root {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+
+//--------------------------| Types
+
+.page {
+  font: map-get($roles-typo-font-shorthands, 'title');
+  font-variant: small-caps;
+  line-height: map-get($roles-typo-line-heights, 'title');
+}
+
+.subtitle {
+  font: map-get($roles-typo-font-shorthands, 'subtitle');
+}
+
+.accent {
+  font: map-get($roles-typo-font-shorthands, 'accent');
+}
