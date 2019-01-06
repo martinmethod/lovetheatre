@@ -46,7 +46,6 @@ import AniContent from '../../components/animations/animation-content';
 const Actor = ({ match }) => {
   const actor = getEntry('person', match.params.id)[0].fields;
   const roles = actor.roles.bg;
-  console.log('Page: ACTOR', actor);
 
   return (
     <AniWrapper className={classNames(styles.root, spacePageSection)}>

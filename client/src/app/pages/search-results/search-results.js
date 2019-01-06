@@ -56,8 +56,6 @@ const SearchResults = ({ match, history }) => {
   const { actors, plays, news } = getResults(match.params.id);
   const results = actors.length + plays.length + news.length !== 0;
 
-  console.log('Actors', actors);
-
   return (
     <AniWrapper className={classNames(styles.root, spacePageSection)}>
       {
