@@ -6,7 +6,6 @@
 
 const glob = require('glob');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const loaders = glob.sync(`${__dirname}/loaders/**/*.js`).map(file => require( path.resolve( file ) ));
 const plugins = glob.sync(`${__dirname}/plugins/**/*.js`).map(file => require( path.resolve( file ) ));
 // const commonLoaders = glob.sync(`${__dirname}/../common/loaders/**/*.js`).map(file => require( path.resolve( file ) ));
@@ -24,23 +23,6 @@ const config = {
   },
   module: {
     rules: [...loaders]
-  },
-  optimization: {
-    minimizer: [
-      // TODO: Find minifer solution
-      // new UglifyJsPlugin({
-      //   exclude: /node_modules/,
-      //   uglifyOptions: {
-      //     compress: {
-      //       drop_debugger: true,
-      //       drop_console: true
-      //     },
-      //     output: {
-      //       comments: false
-      //     }
-      //   }
-      // })
-    ]
   },
   plugins: [...plugins, ...commonPlugins]
 };
