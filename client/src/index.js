@@ -29,6 +29,16 @@ import './styles/scaffoldings/font-faces.scss';
 
 // Images
 import './assets/images/logo.png';
+import './assets/images/splashscreens/ipad_splash.png';
+import './assets/images/splashscreens/ipadpro1_splash.png';
+import './assets/images/splashscreens/ipadpro2_splash.png';
+import './assets/images/splashscreens/ipadpro3_splash.png';
+import './assets/images/splashscreens/iphone5_splash.png';
+import './assets/images/splashscreens/iphone6_splash.png';
+import './assets/images/splashscreens/iphoneplus_splash.png';
+import './assets/images/splashscreens/iphonex_splash.png';
+import './assets/images/splashscreens/iphonexr_splash.png';
+import './assets/images/splashscreens/iphonexsmax_splash.png';
 
 
 //--------------------------| Initialize
