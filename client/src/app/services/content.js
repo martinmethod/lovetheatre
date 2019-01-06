@@ -29,60 +29,61 @@ const client = createClient({
 
 //--------------------------| Update content
 
-const updateContent = (content, payload) => {
-  const types = ['Entries', 'Assets'];
-  const newContent = { ...content };
+const updateContent = (storageContent, payload) => {
+  let updatedContent = [...storageContent];
 
-  for (let type = 0; type < types.length; type += 1) {
-    const lowerType = types[type].toLowerCase();
-
-    if (payload[lowerType].length > 0) {
-      newContent[lowerType] = _.concat(newContent[lowerType], payload[lowerType]);
-    }
-
-    if (payload[`deleted${types[type]}`].length > 0) {
-      newContent[lowerType] = _.differenceWith(
-        newContent[lowerType],
-        payload[`deleted${types[type]}`],
-        (item, deletedItem) => item.sys.id === deletedItem.sys.id
-      );
-    }
+  if (payload.entries.length > 0) {
+    updatedContent = _.unionWith(payload.entries, updatedContent, (a, b) => a.sys.id === b.sys.id);
   }
 
-  return newContent;
+  if (payload.deletedEntries.length > 0) {
+    updatedContent = _.differenceWith(
+      updatedContent, payload.deletedEntries, (a, b) => a.sys.id === b.sys.id
+    );
+  }
+
+  return updatedContent;
 };
 
 
 //--------------------------| Request content
 
 export const requestContent = async () => {
-  const storage = localStorage.getItem('lt_content');
+  const storageContent = localStorage.getItem('lt_content');
   const token = localStorage.getItem('lp_contentful_sync_token');
   const syncParams = token ? { nextSyncToken: token } : { initial: true };
 
-  let content = await client.sync(syncParams);
+  try {
+    const remoteContent = await client.sync(syncParams);
+    let updatedContent = remoteContent.entries;
 
-  if (token) {
-    content = updateContent(parse(storage), content);
+    if (token) {
+      updatedContent = updateContent(parse(storageContent), remoteContent);
+    }
+
+    localStorage.setItem('lp_contentful_sync_token', remoteContent.nextSyncToken);
+
+    return Promise.resolve(updatedContent);
   }
+  catch (error) {
+    if (storageContent) {
+      return Promise.resolve(parse(storageContent));
+    }
 
-  localStorage.setItem('lp_contentful_sync_token', content.nextSyncToken);
-
-  return new Promise((resolve) => {
-    resolve(content);
-  });
+    return Promise.reject(new Error('nemom ti dadem nikvo sudurjanie'));
+  }
 };
 
 
 //--------------------------| Get entries
 
-export const getEntries = type => parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === type);
+export const getEntries = type => parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === type);
 
 
 //--------------------------| Get cover plays
 
 export const getCoverPlays = () => {
-  const plays = parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === 'play');
+  const plays = parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === 'play');
   return plays.filter(item => item.fields.frontCover && item.fields.frontCover.bg);
 };
 
@@ -160,7 +161,7 @@ export const getActors = () => {
 //--------------------------| Get entry
 
 export const getEntry = (type, id) => {
-  const entries = parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === type);
+  const entries = parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === type);
 
   return entries.filter(entry => entry.fields.id.bg === id);
 };

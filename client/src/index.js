@@ -37,37 +37,45 @@ import './assets/images/logo.png';
   document.body.appendChild(root);
 
 
-  //--------------------------| Store content
+  //--------------------------| Move on if there is content
 
-  const content = await requestContent();
-  localStorage.setItem('lt_content', stringify(content));
+  try {
+    //--------------------------| Store content
 
-
-  //--------------------------| State store
-
-  store.subscribe(() => {
-    localStorage.setItem('lt_state', JSON.stringify(store.getState()));
-  });
+    const content = await requestContent();
+    localStorage.setItem('lt_content', stringify(content));
 
 
-  //--------------------------| Handle screen type
+    //--------------------------| State store
 
-  const setScreenType = () => {
-    const type = window.innerWidth < 992 ? 'mobile' : 'desktop';
-    store.dispatch(changeScreenType(type));
-  };
-
-  window.addEventListener('resize', setScreenType);
-  setScreenType();
+    store.subscribe(() => {
+      localStorage.setItem('lt_state', JSON.stringify(store.getState()));
+    });
 
 
-  //--------------------------| Render
+    //--------------------------| Handle screen type
 
-  const jsx = (
-    <Provider store={ store }>
-      <App />
-    </Provider>
-  );
+    const setScreenType = () => {
+      const type = window.innerWidth < 992 ? 'mobile' : 'desktop';
+      store.dispatch(changeScreenType(type));
+    };
 
-  ReactDOM.render(jsx, root);
+    window.addEventListener('resize', setScreenType);
+    setScreenType();
+
+
+    //--------------------------| Render
+
+    const jsx = (
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    );
+
+    ReactDOM.render(jsx, root);
+  }
+  catch (error) {
+    console.error('No content found', error);
+    // TODO: Display "No content found"
+  }
 })();
