@@ -24,37 +24,29 @@ import { changeScreenType } from './app/actions/app';
 
 // Styles
 import './styles/scaffoldings/base.scss';
+import './styles/scaffoldings/spinner.scss';
 import './styles/scaffoldings/font-faces.scss';
 
 // Images
 import './assets/images/logo.png';
 
 
+//--------------------------| Initialize
+
 (async () => {
-  //--------------------------| Root
-  const root = document.createElement('div');
-  root.id = 'root';
-  document.body.appendChild(root);
-
-
-  //--------------------------| Move on if there is content
-
   try {
-    //--------------------------| Store content
-
+    // Store content
     const content = await requestContent();
     localStorage.setItem('lt_content', stringify(content));
 
 
-    //--------------------------| State store
-
+    // State store
     store.subscribe(() => {
       localStorage.setItem('lt_state', JSON.stringify(store.getState()));
     });
 
 
-    //--------------------------| Handle screen type
-
+    // Handle screen type
     const setScreenType = () => {
       const type = window.innerWidth < 992 ? 'mobile' : 'desktop';
       store.dispatch(changeScreenType(type));
@@ -64,15 +56,14 @@ import './assets/images/logo.png';
     setScreenType();
 
 
-    //--------------------------| Render
-
+    // Render
     const jsx = (
       <Provider store={store}>
         <App/>
       </Provider>
     );
 
-    ReactDOM.render(jsx, root);
+    ReactDOM.render(jsx, document.getElementById('root'));
   }
   catch (error) {
     console.error('No content found', error);

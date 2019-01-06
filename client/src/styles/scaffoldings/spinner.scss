@@ -1,0 +1,53 @@
+//====================================================|
+// SCAFFOLDINGS: Spinner
+
+
+//--------------------------| Animation
+
+@keyframes :global(spinner) {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+//--------------------------| Object
+
+:global {
+  $spinner: map-get($swatch-colors, 'red-dark');
+  $background: white;
+  $size: 3rem;
+
+  .spinner {
+    @include dimensions-square($size);
+
+    position: absolute;
+    top: calc(50% - #{$size / 2});
+    left: calc(50% - #{$size / 2});
+    animation: spinner 0.75s linear infinite;
+
+    span {
+      @include dimensions-square(100%);
+
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .spinner-inner-1 {
+      background: linear-gradient(to right, rgba($spinner,0) 0%,rgba($spinner,0) 50%,$spinner 51%);
+    }
+
+    .spinner-inner-2 {
+      background: linear-gradient(to top, rgba($background,0) 0%,$background 100%);
+    }
+
+    .spinner-inner-3 {
+      $offset: $size * 0.1;
+
+      @include dimensions-square($size - ($offset * 2));
+
+      top: $offset;
+      left: $offset;
+      background: $background;
+    }
+  }
+}
