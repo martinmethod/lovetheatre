@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Services
-import { formatDate, getEntry } from '../../services/content';
+import { getEntry } from '../../services/content';
 
 // Database
 import {
