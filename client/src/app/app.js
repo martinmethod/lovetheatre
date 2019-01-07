@@ -21,7 +21,7 @@ import styles from './app.scss';
 //--------------------------| Component
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <div className={styles.root}>
       <PageRouter />
     </div>
