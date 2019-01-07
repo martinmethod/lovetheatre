@@ -1,5 +1,5 @@
 //====================================================|
-// WEBPACK DEV LOADERS: FONTS
+// WEBPACK COMMON LOADERS: FONTS
 
 
 //--------------------------| Export
@@ -8,7 +8,10 @@ module.exports = {
   test: /\.(woff|woff2)$/,
   use: [
     {
-      loader: 'file-loader'
+      loader: 'file-loader',
+      options: {
+        name: 'fonts/[hash].[ext]'
+      }
     }
   ]
 };
