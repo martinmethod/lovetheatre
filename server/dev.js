@@ -6,7 +6,6 @@
 
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const path = require('path');
 const opn = require('opn');
 const chalk = require('chalk');
 const webpackConfig = require('../configs/dev/webpack.config.dev');
