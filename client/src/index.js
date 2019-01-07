@@ -69,7 +69,7 @@ import './assets/images/splashscreens/iphonexsmax_splash.png';
     // Render
     const jsx = (
       <Provider store={store}>
-        <App/>
+        <App />
       </Provider>
     );
 
