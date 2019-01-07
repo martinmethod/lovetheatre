@@ -30,15 +30,17 @@ const client = createClient({
 //--------------------------| Update content
 
 const updateContent = (storageContent, payload) => {
-  let updatedContent = [...storageContent];
+  const updatedContent = { ...storageContent };
 
   if (payload.entries.length > 0) {
-    updatedContent = _.unionWith(payload.entries, updatedContent, (a, b) => a.sys.id === b.sys.id);
+    updatedContent.entries = _.unionWith(
+      payload.entries, updatedContent.entries, (a, b) => a.sys.id === b.sys.id
+    );
   }
 
   if (payload.deletedEntries.length > 0) {
-    updatedContent = _.differenceWith(
-      updatedContent, payload.deletedEntries, (a, b) => a.sys.id === b.sys.id
+    updatedContent.entries = _.differenceWith(
+      updatedContent.entries, payload.deletedEntries, (a, b) => a.sys.id === b.sys.id
     );
   }
 
@@ -54,8 +56,14 @@ export const requestContent = async () => {
   const syncParams = token ? { nextSyncToken: token } : { initial: true };
 
   try {
-    const remoteContent = await client.sync(syncParams);
-    let updatedContent = remoteContent.entries;
+    const remoteContent = await client.sync({
+      ...syncParams,
+      resolveLinks: true
+    });
+    let updatedContent = {
+      entries: remoteContent.entries,
+      assets: remoteContent.assets
+    };
 
     if (token) {
       updatedContent = updateContent(parse(storageContent), remoteContent);
@@ -70,20 +78,20 @@ export const requestContent = async () => {
       return Promise.resolve(parse(storageContent));
     }
 
-    return Promise.reject(new Error('nemom ti dadem nikvo sudurjanie'));
+    return Promise.reject(new Error('No content found.'));
   }
 };
 
 
 //--------------------------| Get entries
 
-export const getEntries = type => parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === type);
+export const getEntries = type => parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === type);
 
 
 //--------------------------| Get cover plays
 
 export const getCoverPlays = () => {
-  const plays = parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === 'play');
+  const plays = parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === 'play');
   return plays.filter(item => item.fields.frontCover && item.fields.frontCover.bg);
 };
 
@@ -161,10 +169,15 @@ export const getActors = () => {
 //--------------------------| Get entry
 
 export const getEntry = (type, id) => {
-  const entries = parse(localStorage.getItem('lt_content')).filter(item => item.sys.contentType.sys.id === type);
+  const entries = parse(localStorage.getItem('lt_content')).entries.filter(item => item.sys.contentType.sys.id === type);
 
   return entries.filter(entry => entry.fields.id.bg === id);
 };
+
+
+//--------------------------| Get asset
+
+export const getAsset = id => _.find(parse(localStorage.getItem('lt_content')).assets, asset => asset.sys.id === id);
 
 
 //--------------------------| Get results

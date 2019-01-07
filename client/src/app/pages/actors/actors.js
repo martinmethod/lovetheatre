@@ -8,6 +8,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
+// Services
+import { getAsset } from '../../services/content';
+
 // Database
 import { pages as pagesLabels } from '../../../database/labels.json';
 
@@ -45,7 +48,7 @@ const Actors = ({ data }) => (
             <AvatarBanner
               data={{
                 id: actor.fields.id.bg,
-                photo: actor.fields.avatar.bg.fields.file.bg.url,
+                photo: getAsset(actor.fields.avatar.bg.sys.id).fields.file.bg.url,
                 title: actor.fields.name.bg
               }}
             />

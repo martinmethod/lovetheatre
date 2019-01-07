@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Services
-import { getEntry } from '../../services/content';
+import { getEntry, getAsset } from '../../services/content';
 
 // Database
 import {
@@ -54,7 +54,7 @@ const Actor = ({ match }) => {
       </AniContent>
       <div className={styles.main}>
         <AniContent className={styles.avatar}>
-          <Thumb title={actor.name.bg} src={actor.avatar.bg.fields.file.bg.url} type={'avatar'} />
+          <Thumb title={actor.name.bg} src={getAsset(actor.avatar.bg.sys.id).fields.file.bg.url} type={'avatar'} />
         </AniContent>
         <AniContent className={styles.summary}>
           <Text>

@@ -8,6 +8,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
+// Services
+import { getAsset } from '../../services/content';
+
 // Database
 import { pages as pagesLabels } from '../../../database/labels.json';
 import { news as newsPath } from '../../../database/pages.json';
@@ -47,7 +50,7 @@ const News = ({ data }) => (
               date: n.fields.date.bg,
               title: n.fields.title.bg,
               url: `${newsPath}/${n.fields.id.bg}`,
-              src: n.fields.picture.bg.fields.file.bg.url
+              src: getAsset(n.fields.picture.bg.sys.id).fields.file.bg.url
             }} />
           </ListItem>
         ))

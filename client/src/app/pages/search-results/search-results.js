@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 
 // Services
-import { getResults } from '../../services/content';
+import { getResults, getAsset } from '../../services/content';
 
 // Database
 import {
@@ -140,7 +140,7 @@ const SearchResults = ({ match, history }) => {
                           <AvatarBanner
                             data={{
                               id: actor.fields.id.bg,
-                              photo: actor.fields.avatar.bg.fields.file.bg.url,
+                              photo: getAsset(actor.fields.avatar.bg.sys.id).fields.file.bg.url,
                               title: actor.fields.name.bg
                             }}
                           />
@@ -169,7 +169,7 @@ const SearchResults = ({ match, history }) => {
                             date: n.fields.date.bg,
                             title: n.fields.title.bg,
                             url: `${newsPath}/${n.fields.id.bg}`,
-                            src: n.fields.picture.bg.fields.file.bg.url
+                            src: getAsset(n.fields.picture.bg.sys.id).fields.file.bg.url
                           }} />
                         </ListItem>
                       ))

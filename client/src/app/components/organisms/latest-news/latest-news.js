@@ -9,6 +9,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
+// Services
+import { getAsset } from '../../../services/content';
+
 // Database
 import { news as newsPath } from '../../../../database/pages.json';
 import { latestNews as latestNewsLabel } from '../../../../database/labels.json';
@@ -36,7 +39,7 @@ const LatestNews = ({ data }) => {
     date: item.fields.date.bg,
     title: item.fields.title.bg,
     url: `${newsPath}/${item.fields.id.bg}`,
-    src: item.fields.picture.bg.fields.file.bg.url
+    src: getAsset(item.fields.picture.bg.sys.id).fields.file.bg.url
   }));
 
   return (

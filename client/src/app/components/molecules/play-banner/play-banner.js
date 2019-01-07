@@ -9,6 +9,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
+// Services
+import { getAsset } from '../../../services/content';
+
 // Database
 import { plays as playsPath } from '../../../../database/pages.json';
 import {
@@ -53,7 +56,7 @@ const PlayBanner = ({ parentStyles, data }) => {
       >
         <Thumb
           parentStyles={styles.thumb}
-          src={poster.fields.file.bg.url}
+          src={getAsset(poster.sys.id).fields.file.bg.url}
           title={title}
           type={'portrait'}
         />

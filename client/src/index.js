@@ -49,12 +49,10 @@ import './assets/images/splashscreens/iphonexsmax_splash.png';
     const content = await requestContent();
     localStorage.setItem('lt_content', stringify(content));
 
-
     // State store
     store.subscribe(() => {
       localStorage.setItem('lt_state', JSON.stringify(store.getState()));
     });
-
 
     // Handle screen type
     const setScreenType = () => {
@@ -64,7 +62,6 @@ import './assets/images/splashscreens/iphonexsmax_splash.png';
 
     window.addEventListener('resize', setScreenType);
     setScreenType();
-
 
     // Render
     const jsx = (

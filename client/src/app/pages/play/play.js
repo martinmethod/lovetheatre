@@ -12,7 +12,7 @@ import _ from 'lodash';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Services
-import { formatDate, getEntry } from '../../services/content';
+import { formatDate, getEntry, getAsset } from '../../services/content';
 
 // Database
 import { playTime } from '../../../database/content.json';
@@ -74,7 +74,7 @@ const Play = ({ match }) => {
           </Text>
         </AniContent>
         <AniContent className={styles.poster}>
-          <Thumb title={play.title.bg} src={play.poster.bg.fields.file.bg.url} type={'portrait'} />
+          <Thumb title={play.title.bg} src={getAsset(play.poster.bg.sys.id).fields.file.bg.url} type={'portrait'} />
         </AniContent>
         <AniContent className={styles.details}>
           <dl>

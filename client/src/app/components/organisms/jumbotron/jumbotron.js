@@ -8,6 +8,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Services
+import { getAsset } from '../../../services/content';
+
 // Database
 import { plays as playsPath } from '../../../../database/pages.json';
 import { expectSoon as expectSoonLabel } from '../../../../database/labels.json';
@@ -30,7 +33,11 @@ const Jumbotron = ({ data }) => {
   return (
     <section className={styles.root}>
       <Link to={`${playsPath}/${play.id.bg}`}>
-        <CoverImage parentStyles={styles} title={title} src={play.cover.bg.fields.file.bg.url} />
+        <CoverImage
+          parentStyles={styles}
+          title={title}
+          src={getAsset(play.cover.bg.sys.id).fields.file.bg.url}
+        />
         <Hotline parentStyles={styles}>
           <Heading>
             <span>{expectSoonLabel}: </span>

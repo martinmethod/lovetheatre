@@ -9,7 +9,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 // Services
-import { getEntry } from '../../services/content';
+import { getEntry, getAsset } from '../../services/content';
 
 // Database
 import { pages as pagesLabels } from '../../../database/labels.json';
@@ -46,7 +46,7 @@ const About = () => {
       <Text>
         <AniContent>
           <Thumb
-            src={page.picture.bg.fields.file.bg.url}
+            src={getAsset(page.picture.bg.sys.id).fields.file.bg.url}
             title={pagesLabels.about}
           />
         </AniContent>

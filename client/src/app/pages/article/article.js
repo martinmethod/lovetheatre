@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Services
-import { getEntry } from '../../services/content';
+import { getEntry, getAsset } from '../../services/content';
 
 // Styles
 import styles from './article.scss';
@@ -47,7 +47,7 @@ const Article = ({ match }) => {
         </AniContent>
         <AniContent>
           <Thumb
-            src={article.picture.bg.fields.file.bg.url}
+            src={getAsset(article.picture.bg.sys.id).fields.file.bg.url}
             title={article.title.bg}
           />
         </AniContent>

@@ -9,6 +9,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
+// Services
+import { getAsset } from '../../../services/content';
+
 // Database
 import {
   events as eventsPath,
@@ -39,7 +42,7 @@ const Upcoming = ({ data }) => {
     date: item.fields.date.bg,
     title: item.fields.play.bg.fields.title.bg,
     url: `${playsPath}/${item.fields.play.bg.fields.id.bg}`,
-    src: item.fields.play.bg.fields.poster.bg.fields.file.bg.url,
+    src: getAsset(item.fields.play.bg.fields.poster.bg.sys.id).fields.file.bg.url,
     type: 'portrait'
   }));
 
