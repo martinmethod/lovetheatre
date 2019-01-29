@@ -9,7 +9,7 @@ const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 //--------------------------| Configuration
 
-const plugin = new MinifyPlugin({
+const plugin = new MinifyPlugin({}, {
   comments: false
 });
 
