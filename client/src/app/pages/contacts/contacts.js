@@ -9,6 +9,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
+// Services
+import { getEntry } from '../../services/content';
+
 // Database
 import { pages as pagesLabels } from '../../../database/labels.json';
 import { maps as mapsPaths } from '../../../database/content.json';
@@ -27,7 +30,6 @@ import Text from '../../components/molecules/text';
 // Animation
 import AniWrapper from '../../components/animations/animation-wrapper';
 import AniContent from '../../components/animations/animation-content';
-import { getEntry } from '../../services/content';
 
 
 //--------------------------| Page
