@@ -4,13 +4,13 @@
 
 //--------------------------| Import
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 //--------------------------| Configuration
 
 const plugin = new MiniCssExtractPlugin({
-  filename: "app.[contenthash].css"
+  filename: 'app.[contenthash].css'
 });
 
 

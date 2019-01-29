@@ -4,7 +4,7 @@
 
 //--------------------------| Import
 
-const MinifyPlugin = require("babel-minify-webpack-plugin");
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 
 //--------------------------| Configuration
