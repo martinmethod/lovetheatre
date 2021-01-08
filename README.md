@@ -17,4 +17,4 @@ A bachelor degree project.
 *Bundler:* **[Webpack](http://webpack.js.org)**
 
 #
-*Production:* **[lovetheatre.martinmetodiev.com](http://lovetheatre.martinmetodiev.com)**
+*Production:* **[lovetheatre.metodiev.dev](http://lovetheatre.metodiev.dev)**
